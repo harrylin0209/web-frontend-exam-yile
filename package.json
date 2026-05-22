@@ -39,6 +39,9 @@
     ]
   },
   "devDependencies": {
-    "miragejs": "^0.1.48"
+    "autoprefixer": "^10.5.0",
+    "miragejs": "^0.1.48",
+    "postcss": "^8.5.15",
+    "tailwindcss": "3"
   }
 }
