@@ -54,7 +54,7 @@ function JobBoard() {
     const nextJobs = jobs.filter((job) => {
       const matchKeyword =
         !filters.keyword ||
-        job.jobTitle.includes(filters.keyword);
+        job.companyName.includes(filters.keyword);
 
       const matchEducation =
         !filters.educationLevel ||
