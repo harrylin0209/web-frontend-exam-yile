@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import backgroundImage from '../assets/background.png';
 import characterImage from '../assets/character.png';
 import characterWhiteImage from '../assets/character-white.png';
@@ -57,7 +59,7 @@ function HeroIllustration() {
           />
 
           {/* logo */}
-          <img
+          <motion.img
             src={logoImage}
             alt="logo"
             className="
@@ -68,6 +70,14 @@ function HeroIllustration() {
               h-auto
               z-30
             "
+            animate={{
+              scale: [1, 1.06, 1],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
           />
         </div>
       </div>
