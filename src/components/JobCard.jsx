@@ -2,7 +2,12 @@ import jobIcon from '../assets/job-icon.png';
 import educationIcon from '../assets/education-icon.png';
 import salaryIcon from '../assets/salary-icon.png';
 
-function JobCard({ job, educationLevelList, salaryLevelList }) {
+function JobCard({ 
+  job, 
+  educationLevelList, 
+  salaryLevelList, 
+  onClick
+}) {
   const parseEducation = educationLevelList.find((edu) => Number(edu.id) === Number(job.educationId));
   const parseSalary = salaryLevelList.find((sal) => Number(sal.id) === Number(job.salaryId));
 
@@ -32,7 +37,10 @@ function JobCard({ job, educationLevelList, salaryLevelList }) {
         </p>
         <p className="text-sm text-gray-1000 truncate mb-[10px]">{job.preview}</p>
 
-        <div className="flex justify-center items-center">
+        <div 
+          className="flex justify-center items-center"
+          onClick={() => onClick(job.id)}
+        >
           <span className="text-sm text-orange-700 font-bold cursor-pointer">
             查看細節
           </span>

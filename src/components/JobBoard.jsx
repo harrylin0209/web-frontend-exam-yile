@@ -9,7 +9,7 @@ import {
   getSalaryLevelList,
 } from '../api/jobService';
 
-function JobBoard() {
+function JobBoard({onSelectJob}) {
   const [filters, setFilters] = useState({
     keyword: '',
     educationLevel: '',
@@ -41,7 +41,6 @@ function JobBoard() {
   useEffect(() => {
     fetchInitialData();
   }, []);
-
 
   const handleFilterChange = (name, value) => {
     setFilters((prev) => ({
@@ -103,6 +102,7 @@ function JobBoard() {
         jobs={filteredJobs}
         educationLevelList={educationLevelList}
         salaryLevelList={salaryLevelList}
+        onSelectJob={onSelectJob}
       />
     </div>
   );

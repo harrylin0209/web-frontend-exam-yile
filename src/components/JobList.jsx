@@ -5,7 +5,7 @@ import JobCard from './JobCard';
 import Pagination from './Pagination';
 
 
-function JobList({ jobs, educationLevelList, salaryLevelList }) {
+function JobList({ jobs, educationLevelList, salaryLevelList, onSelectJob }) {
   const itemsPerPage = useItemsPerPage(); // 取得動態的每頁筆數 (4 或 6)
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -30,6 +30,7 @@ function JobList({ jobs, educationLevelList, salaryLevelList }) {
             job={job} 
             educationLevelList={educationLevelList}
             salaryLevelList={salaryLevelList}
+            onClick={onSelectJob}
           />
         ))}
       </div>

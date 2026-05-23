@@ -14,3 +14,8 @@ export async function getSalaryLevelList() {
   const data = await request('/api/v1/salaryLevelList');
   return data;
 }
+
+export async function getJobDetail(jobId) {
+  const data = await request(`/api/v1/jobs/${jobId}`);
+  return data;
+}
