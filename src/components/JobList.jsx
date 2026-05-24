@@ -23,22 +23,36 @@ function JobList({ jobs, educationLevelList, salaryLevelList, onSelectJob }) {
 
   return (
     <div>
-      <div className="flex items-center flex-wrap gap-[18px] mb-3">
-        {currentItems.map((job) => (
-          <JobCard 
-            key={job.id} 
-            job={job} 
-            educationLevelList={educationLevelList}
-            salaryLevelList={salaryLevelList}
-            onClick={onSelectJob}
-          />
-        ))}
-      </div>
-      <Pagination
-        currentPage={validCurrentPage}
-        totalPages={totalPages}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
+      {
+        currentItems.length > 0 ? (
+          <>
+            <div className="flex items-stretch flex-wrap gap-[18px] mb-3">
+              {currentItems.map((job) => (
+                <JobCard 
+                  key={job.id} 
+                  job={job} 
+                  educationLevelList={educationLevelList}
+                  salaryLevelList={salaryLevelList}
+                  onClick={onSelectJob}
+                />
+              ))}
+            </div>
+            <Pagination
+              currentPage={validCurrentPage}
+              totalPages={totalPages}
+              onPageChange={(page) => setCurrentPage(page)}
+            />
+          </>
+        ) : (
+          <div className="
+            flex justify-center items-center 
+            w-full h-[458px]
+            border border-gray-500 rounded-[6px]
+            text-gray-700">
+            無資料
+          </div>
+        )
+      }
     </div>
   );
 }

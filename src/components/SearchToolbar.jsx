@@ -120,7 +120,7 @@ function SearchToolbar(props) {
 
       <button
         type="button"
-        className="px-[22px] py-[18px] w-[108px]
+        className="px-[22px] py-[18px] w-[108px] min-w-[108px]
           rounded 
           bg-gray-700 text-white"
         onClick={onSearch}

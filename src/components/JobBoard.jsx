@@ -75,7 +75,8 @@ function JobBoard({onSelectJob}) {
 
   return (
     <div className="
-      m-0 sm:m-7
+      sm:relative sm:z-30
+      m-0 sm:m-7 sm:-mt-[9.04%] sm:mb-0
       p-4 sm:p-6
       border-y sm:border border-gray-500 sm:rounded-xl
       bg-gray-100
