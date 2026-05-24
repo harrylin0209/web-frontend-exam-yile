@@ -1,171 +1,364 @@
-# Frontend Engineer Exam
+# Tech Stack
 
-這是一份 Yile 前端工程師的徵才專案，會需根據規則及設計檔完成頁面需求。
+- React
+- JavaScript
+- TailwindCSS
+- Framer Motion
+- MirageJS
+- Yarn
 
-## ⭐️ 需求
+---
 
-### 框架
+# Features
 
-1. 語言：Javascript
-2. Framework：
-   1. 建議使用 React.js / Next.js，使用 Vue.js 亦可接受
+- Job keyword search
+- Education level filter
+- Salary level filter
+- Dynamic job listing
+- Mock API integration
+- Loading state handling
+- Empty state UI
+- Hero animation
+- Eye tracking effect
+- Responsive design (RWD)
 
-### CSS
+---
 
-可以選擇以下其一或者搭配做為使用
+# 1. 如何執行此專案
 
-1. [Material UI](https://mui.com/material-ui/)
-2. [Sass](https://sass-lang.com/)
-3. [Tailwindcss](https://tailwindcss.com/)
+## Install dependencies
 
-### Coding Style
+使用 yarn 安裝依賴：
 
-採用 [Google Coding Style](https://google.github.io/styleguide/) 或 [Airbnb Style](https://github.com/airbnb/javascript)，我們將會審查你的程式碼是否符合風格規範
-
-## 📝 實作描述
-
-- 請 Fork 此專案做開發
-- 根據 [Figma](https://www.figma.com/file/VcTqAK0x3JBi9nMvqN9YXJ/Web-Frontend-Developer-Exam?type=design&node-id=0%3A1&mode=design&t=EAnp3AAU1aqJ66e2-1) 實作頁面，請 `登入` 帳號才可看到實作細節
-- 若有任何優化、更好方式請自由發揮，但確保基本功能皆有達成需求
-
-## ✅ 提交說明
-
-1. 請將專案上傳至 Github，提交 Repositories 連結給 HR，我們將會閱讀你的程式碼
-2. 請提供一份 README 文件說明
-   1. 如何執行此專案
-   2. 專案架構、邏輯說明
-   3. 專案遇到的困難、問題及解決方法
-3. 請回傳給 HR，內容需包含 Github Repositories Link
-
-## 🥇 加分項目
-
-- 加載資料時的過渡表現
-- 細節動畫表現
-- 部署至任一平台以供成果檢視，例如：Heroku、AWS S3、GCS、Github Page …… 等
-
-## ⚠️ 注意事項
-
-- 素材為本公司內部所有，除此次線上考使用，請勿另用他途。
-
-## ⚙️ API
-
-### Job List [GET] `/api/v1/jobs`
-
-工作列表
-
-**Parameter**
-
-| Name | Description |
-| ---------------- | -------------- |
-| pre_page         | 每頁顯示筆數     |
-| page             | 指定頁面頁數     |
-| company_name     | 公司名稱        |
-| education_level  | 教育程度 id     |
-| salary_level     | 薪資範圍 id     |
-
-**Response**
-
-```json
-{
-  "data": [
-    {
-      "id": "1",
-      "companyName": "立刻科技",
-      "jobTitle": "資深前端工程師",
-      "educationId": 4,
-      "salaryId": 3,
-      "preview": "招募經驗豐富的前端工程師，共創卓越網頁體驗！",
-    }
-  ],
-  "total": 1
-}
+```bash
+yarn install
 ```
 
 ---
 
-### Education Level List [GET] `/api/v1/educationLevelList`
+## Start development server
 
-教育程度列表
+啟動 React 開發環境：
 
-**Response**
+```bash
+yarn start
+```
 
-```json
-[
-  {
-     "id": "1", "label": "國小"
-  },
-  {
-     "id": "2", "label": "國中"
-  },
-  {
-     "id": "3", "label": "高中"
-  },
-  {
-     "id": "4", "label": "大學"
-  },
-  {
-     "id": "5", "label": "碩士"
-  },
-  {
-     "id": "6", "label": "博士"
-  }
-]
+預設執行：
+
+```bash
+http://localhost:3000
 ```
 
 ---
 
-### Salary Level List [GET] `/api/v1/salaryLevelList`
+## Install Framer Motion
 
-薪資範圍列表
+若尚未安裝動畫套件：
 
-**Response**
-
-```json
-[
-  {
-    "id": "1", "label": "待遇面議"
-  },
-  {
-    "id": "2", "label": "月薪 40,000 ~ 60,000 元"
-  },
-  {
-    "id": "3", "label": "月薪 70,000 ~ 100,000 元"
-  },
-  {
-    "id": "4", "label": "年薪 800,000 ~ 1,000,000 元"
-  },
-  {
-    "id": "5", "label": "年薪 800,000 ~ 1,500,000 元"
-  },
-  {
-    "id": "6", "label": "年薪 1,500,000 ~ 2,000,000 元"
-  },
-  {
-    "id": "7", "label": "年薪 2,000,000 ~ 2,500,000 元"
-  }
-]
+```bash
+yarn add framer-motion
 ```
 
 ---
 
-### Job [GET] `/api/v1/jobs/:id`
+## Mock API (MirageJS)
 
-單一工作資訊
+此專案使用 MirageJS 模擬後端 API。
 
-**Response**
+MirageJS 會在 React App 啟動時一併初始化，不需要另外啟動 mock server。
 
-```json
-{
-  "id": "6",
-  "description": "<h1>貨運操作員</h1><h2>工作地點：公司總部 - 台北市</h2><h2>職責與要求</h2><ul><li>負責倉儲內的物品搬運、分裝、包裝及出貨作業，確保貨物的準確性和完整性。<br />遵循公司的作業流程和安全規範，保障倉庫內的工作環境。<br />與團隊成員合作，確保倉儲操作的順暢進行。<br />需具備基本的電腦操作能力，能使用相關SaaS系統進行庫存管理。<br />需要有良好的溝通協調能力，能有效地與其他部門合作，確保整體物流運作的協調性。<br />對倉儲物流行業有興趣，願意學習並接受公司提供的培訓。</li></ul><h2>資格</h2><ul><li>至少高中畢業，具備相關物流或倉儲操作經驗者優先考慮。<br />具有貨運相關證照者尤佳。<br />對工作積極負責，有良好的工作態度和團隊協作精神。<br />願意接受輪班工作，能夠適應倉儲作業的體力需求。</li></ul><h2>我們提供</h2><ul><li>充滿挑戰性的工作環境，與國際化的專業團隊一同合作。<br />完善的培訓體系，協助您提升相關技能和知識。<br />良好的晉升機會，公司快速發展將為您提供更多職涯發展空間。<br />公司福利包括勞健保、團體保險、員工餐飲補助等。</li></ul><p>如果您渴望挑戰自我，想要加入一個充滿活力和機會的團隊，請將您的履歷寄至 <a href=\"mailto:hr@jenjanlogistics.com\">hr@jenjanlogistics.com</a>，我們期待與您攜手共創物流行業的未來。<br /><br />【JenJan真站電商衛星倉儲物流】期待您的加入！</p>",
-  "companyPhoto": [
-    "https://picsum.photos/250/150",
-    "https://picsum.photos/250/150",
-    "https://picsum.photos/250/150",
-    "https://picsum.photos/250/150",
-    "https://picsum.photos/250/150"
-  ],
-  "jobTitle": "廚師助手",
-  "companyName": "餐飲樂活"
-}
+初始化位置：
+
+```bash
+src/index.js
 ```
+
+---
+
+# 2. 專案架構
+
+```bash
+src/
+├── api/
+│   ├── client.js
+│   └── jobService.js
+│
+├── pages/
+│   └── Homepage.jsx
+│
+├── components/
+│   ├── HeroIllustration.jsx
+│   ├── Eye.jsx
+│   │
+│   ├── JobBoard.jsx
+│   ├── SearchToolbar.jsx
+│   ├── JobList.jsx
+│   ├── JobCard.jsx
+│   ├── Pagination.jsx
+│   │
+│   ├── JobPanel.jsx
+│   └── ImageCarousel.jsx
+│
+├── hooks/
+│   └── useItemPerPage.js
+│
+├── App.jsx
+└── index.js
+```
+
+---
+
+# 3. 系統架構與邏輯說明
+
+## Data Flow（State Lifting）
+
+此專案未使用 Redux / Zustand 等全域狀態管理工具。
+
+主要採用：
+
+**State Lifting（狀態提升）**
+
+由 `Homepage` 管理 JobPanel 開關、API Loading/Error 狀態；
+並由 `JobBoard` 管理 Job 篩選/搜尋/動態列表 狀態。
+
+```text
+Homepage
+├── HeroIllustration
+├── JobBoard
+│   └── SearchToolbar / JobList / JobCard
+└── JobPanel
+```
+
+Homepage 中集中管理：
+
+- selectedJobId
+- jobDetail
+- isLoading
+- error
+
+JobBoard 中集中管理：
+
+- keyword
+- educationLevel
+- salaryLevel
+- jobs
+- filteredJobs
+
+再透過 props 傳遞給子元件。
+
+此方式適合中小型專案，可避免過度設計。
+
+---
+
+## Search Flow
+
+使用者操作流程：
+
+1. 輸入 keyword
+2. 選擇 education level
+3. 選擇 salary level
+4. 點擊 Search button
+5. 觸發 `handleSearch()`
+6. 取得 jobs 資料
+7. 執行篩選邏輯
+8. 更新 JobList UI
+
+---
+
+## Filtering Logic
+
+主要篩選條件：
+
+- Keyword
+- Education Level
+- Salary Level
+
+篩選責任拆分：
+
+- `SearchToolbar` → 接收輸入與觸發搜尋
+- `JobBoard` → 處理搜尋邏輯、實作條件過濾
+- `JobList` → 顯示結果
+
+---
+
+## Mock API Architecture
+
+使用 MirageJS 模擬 API：
+
+```bash
+/api/v1/jobs
+/api/v1/educationLevelList
+/api/v1/salaryLevelList
+/api/v1/jobDetail/:id
+```
+
+用途：
+
+- 前後端尚未串接時先完成 UI
+- 模擬 API latency
+- 驗證 loading / error handling
+- 降低前後端開發耦合
+
+---
+
+## Component Design Strategy
+
+### Homepage
+
+負責：
+
+- Global page layout
+- Main state management
+- Data flow control
+
+---
+
+### SearchToolbar
+
+負責：
+
+- Keyword input
+- Filter select
+- Search action
+
+不負責資料處理。
+
+---
+
+### JobBoard
+
+負責：
+
+- Job list rendering
+- Empty state
+- Result display
+
+---
+
+### Hero
+
+負責：
+
+Landing section UI：
+
+- Illustration layers
+- Logo breathing animation
+- Eye following mouse position effect
+
+---
+
+# 4. UI / Animation 設計
+
+## Logo Breathing Animation
+
+使用：Framer Motion
+
+效果：
+
+- Scale up
+- Scale down
+- Infinite loop
+- 每 cycle 約 1.5 秒
+
+---
+
+## Eye Following Mouse Position Effect
+
+根據滑鼠座標：
+
+```js
+mousemove
+```
+
+計算：
+
+- translateX
+- translateY
+
+控制眼珠微幅位移；並且設有限制最大偏移範圍，避免眼球超出視覺範圍。
+
+---
+
+## Responsive Design (RWD)
+
+使用 TailwindCSS，採取 Mobile-first 策略處理內容：
+
+- Hero layout scaling
+- Image proportional resize
+- Dynamic spacing
+- Breakpoint layout adjustment
+
+---
+
+# 5. 專案遇到的困難、問題與解決方式
+
+## 問題 1：RWD 圖片比例與距離失真
+
+### 問題
+
+Hero illustration 在小尺寸裝置容易變形或錯位。
+
+### 解法
+
+使用：
+
+- Relative container
+- Percentage-based sizing and positioning
+- Preserve aspect ratio
+
+確保圖片與 spacing 同步縮放。
+
+---
+
+
+## 問題 2：不使用 Zustand / Redux，資料怎麼共享？
+
+### 問題
+
+組件分割後，搜尋條件與搜尋結果需要跨 component 傳遞。
+
+### 解法
+
+使用：
+
+**State Lifting**
+
+由 `Homepage.jsx` 和 `JobBoard.jsx` 集中管理 State 和 Set Function，
+再透過 props 傳遞給子元件：
+
+1. 子元件只負責 UI 呈現，不直接處理資料邏輯。
+2. 當子元件需要更新資料時，呼叫父元件提供的 set function。
+
+---
+
+## 問題 3：HTML String Parsing 問題
+
+### 問題
+
+直接 render HTML string 時：
+
+- `<br />`
+- `<ul>`
+- `<li>`
+
+無法正常解析。
+
+### 解法
+
+改用 HTML parser 將字串轉 React element。
+
+避免被當成純文字輸出。
+
+---
+
+# 6. 後續可優化方向
+
+- React Query（API cache / request handling / loading & error handling）
+- Zustand（跨頁狀態管理）
+- Debounce Search（避免頻繁請求）
+- Skeleton Loading（API 載入時預顯示 UI 骨架，用以提升使用者體驗）
+- Error Boundary
+- Unit Testing（Jest / React Testing Library）
+- E2E Testing（Cypress）
+- Lazy loading / performance optimization
